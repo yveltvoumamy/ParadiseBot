@@ -1,3 +1,5 @@
+from src.bot_handler.handlers.handler import main
+import asyncio
 
 if __name__ == '__main__':
-    print('ok')
+    asyncio.run(main())
