@@ -2,8 +2,22 @@ import csv
 import pandas as pd
 from pathlib import Path
 import asyncio
+from pathlib import Path
+from aiogram.types import InputFile
 
+'''
 
+async def get_inputfile_from_jpg(file_path: Path) -> InputFile:
+    with open(file_path, 'rb') as file:
+        photo = file.read()
+    return photo
+'''
+
+async def get_str_from_txt(file_path: Path) -> str:
+    print(file_path)
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+    return content
 async def add_id_to_csv(file_name: str, new_id: int, status=None) -> bool:
     df = pd.read_csv(Path('src', 'data', f'{file_name}.csv'))
     if new_id in df['id'].tolist():
